@@ -1,0 +1,8 @@
+void sendstring(char *str)
+{
+  while(*str != '\0') {
+  UART1_SendData8(*str);
+  while (UART1_GetFlagStatus(UART1_FLAG_TXE) == RESET);
+    str++;
+  }
+}
