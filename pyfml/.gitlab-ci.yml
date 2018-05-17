@@ -1,0 +1,29 @@
+image: python:3
+
+before_script:
+  - pip install -r requirements-test.txt
+stages:
+  - test
+  - style
+  - type # this is BETA
+  - linting # latest stage because this is BETA, and just a plus for student
+
+check_pep8:
+  stage: style
+  script:
+    - cd /builds/pyfml/pyfml && make style
+
+type:
+  stage: type
+  script:
+    - cd /builds/pyfml/pyfml && make type || true
+
+unittest:
+  stage: test
+  script:
+    - cd /builds/pyfml/pyfml && make test
+
+pylint:
+  stage: linting
+  script:
+    - cd /builds/pyfml/pyfml && make lint
