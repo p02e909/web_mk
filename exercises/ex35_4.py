@@ -10,6 +10,8 @@ def solve(N):
       import string
       random.choice(string.ascii_letters)
 
+    Must: use list comprehension
+    Tips: list comprehension always create new list
     '''
     result = None
 

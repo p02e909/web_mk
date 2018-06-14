@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from fractions import Fraction as frac
+
 
 def solve(*args):
     '''Return tổng (kiểu float) của các phân số trong args
@@ -11,11 +13,8 @@ def solve(*args):
     Tham khảo:
     http://www.familug.org/2017/03/python-fractions-tinh-toan-phan-so-tren.html
     '''
-    result = None
-    a=[]
-    for i in args:
-        a.append(int(i))
-        result = sum([a])
+    result = float(sum(frac(arg) for arg in args))
+
     return result
 
 

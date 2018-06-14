@@ -3,60 +3,59 @@
 
 __doc__ = '''
 Yêu cầu:
-- Lưu file ``https://raw.githubusercontent.com/hvnsweeting/
-states/master/salt/event/init.sls`` về máy với tên event.yaml
+- Viết chương trình cứ 1 giây in ra màn hình thời gian hiện tại.
+- Sau N lần thì chương trình kết thúc
 
-- Dùng pip cài thư viện PyYAML, import yaml và dùng `yaml.load` để biến nội
-dung trong file thành kiểu dữ liệu trên Python.
-
-- In ra số phần tử của kiểu dữ liệu vừa tạo. Dùng thư viện json để
- `pickle.dump` nội dung, ghi ra một file tên là event.json
-
-- Dùng thư viện pickle và pickle.dump nội dung trên ra file event.pkl. Chú
-ý khi mở file, phải mở ở chế độ ghi ở dạng binary. Đọc thêm tại đây:
-https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files`
-
-- In ra kích thước của mỗi file đã tạo.
-
-Gợi ý: sử dụng os.stat(filename).st_size
+Gợi ý:
+time.sleep, datetime.datetime.now
 '''
 
+import time
+import datetime # NOQA
 
-import json  # NOQA
-import os  # NOQA
-import pickle  # NOQA
-import yaml  # NOQA
+import log
+logger = log.get_logger(__name__)
 
 
-def your_function():
-    '''Trả về số phần tử của kiểu dữ liệu sau khi dùng module `yaml` để load
+def your_function(N):
+    '''Trả về tuple chứa 2 phần tử bao gồm:
+    - List chứa các điểm thời gian (string) sau N lần thực hiện
+    theo yêu cầu từ ``__doc__``
+    - Tổng thời gian chạy của function
 
-    Thực hiện các yêu cầu tại ``__doc__``
-
-    :rtype int:
+    :rtype tuple:
     '''
     # Sửa tên và function cho phù hợp, trả về kết quả yêu cầu.
-    result = None
+    start = time.time()
+    # NOTE: DO NOT FORMAT log by % or .format
+    # http://www.familug.org/2014/09/python-logging-ung-format-log-message.html
+    logger.debug("Start at %f", start)
 
-    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    result = []
 
-    return result
+    for _ in range(N):
+        time.sleep(1)
+        result.append(str(datetime.datetime.now()))
+        # result.append(time.ctime())
+    end = time.time()
+    total_time = end - start
+    logger.debug("End at %f", end)
+    return (result, total_time)
 
 
-def solve():
-    '''Học viên không cần viết code trong hàm `solve`, chỉ thực hiện
+def solve(N):
+    '''Học viên không cần chỉnh sửa trong hàm solve, chỉ thực hiện
     đổi tên lại function của mình cho phù hợp
 
-    :rtype int:
+    Hàm solve dùng cho mục đích `test`
+    :rtype tuple:
     '''
-    result = your_function()
-
+    result = your_function(N)
     return result
 
 
 def main():
-    print(solve())
+    print(solve(5))
 
 
 if __name__ == "__main__":

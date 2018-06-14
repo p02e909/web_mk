@@ -21,8 +21,8 @@ def solve(input_data):
     '''
     result = None
 
-    find = input_data.rfind('.')
-    result = input_data[:find]
+    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
+    raise NotImplementedError("Học viên chưa làm bài này")
 
     return result
 

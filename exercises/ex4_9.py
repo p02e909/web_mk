@@ -3,7 +3,7 @@
 
 def solve(numbers):
     '''Tìm phần tử lớn nhất của list số nguyên `numbers`
-    Không sử dụng function `max`
+    Không sử dụng function `max`, `sorted`
     '''
     assert isinstance(numbers, list)
     result = None

@@ -8,21 +8,17 @@ import time
 def find_max_price(datafile):
     f = open(datafile)
     dr = csv.DictReader(f, ['time', 'price', 'UNKNOWN']) # NOQA
-    now - time.gmtime(int(time.time()))
-    print(now.tm_year, now.tm_mon, now.tm_mday)
+    # Viết tiếp code vào đây
 
-    line max, value_max = {}, 0
-    for idx, line in enumerate(dr):
-        t = time.gmtime(int(line['time']))
-        
-
-    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
     try:
-        raise NotImplementedError("Học viên chưa làm bài này")
+        (p, t) = max((float(iterator['price']),
+                     time.strftime("%Y-%m-%d",
+                     time.localtime(int(iterator['time']))))
+                     for iterator in dr)
     finally:
         f.close()
 
-    return
+    return ((t, p))
 
 
 def solve():

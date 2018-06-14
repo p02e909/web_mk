@@ -19,16 +19,10 @@ def solve():
 
     Lưu ý: kết quả từng list con trả về với a giảm dần, b và c tăng dần
     '''
-    result = []
-    for a in range(9,0,-1):
-        for b in range (1,10):
-            for c in range (1,10):
-                if a*c + b == 10*c:
-                    result.append([a,b,c])
-    return result
+    result = None
 
-
-   
+    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
+    raise NotImplementedError("Học viên chưa làm bài này")
 
     return result
 

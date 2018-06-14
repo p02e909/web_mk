@@ -7,6 +7,9 @@ def solve(N):
 
     Given `sum` function:
     >>>  sum([1,2,3,4]) == 10
+
+    Must: use list comprehension
+    Tips: list comprehension always create new list
     '''
     result = None
 

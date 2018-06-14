@@ -4,19 +4,19 @@ __doc__ = '''
 Viết script get_version nhận vào ngày ở format <month>/<day>/<year>.
 VD: 03/28/16 làm parameter và in ra một version được tính theo quy luật sau:
 - Version ở dạng format: <MAJOR>.<MINOR>.<PATCH>, vd: "6.9.2"
+- Cách đánh version này gọi là semver http://semver.org/
 - Từ ngày 09 tháng 02 năm 2016, phiên bản bắt đầu là "1.0.0"
 - Mỗi 28 ngày, MAJOR lại tăng thêm 1, MINOR và PATCH set về 0
-- Mỗi tuần, MINOR tăng thêm 1 và PATCH sẽ set về 0
+- Mỗi 7 ngày, MINOR tăng thêm 1 và PATCH sẽ set về 0
 - Cứ mỗi ngày, PATCH lại tăng thêm 1.
 
-Yêu cầu:
-- Kiểm tra version thu được với lần lượt các input là "02/03/16", "09/06/16"
-với thởi điểm cuối là "06/23/17"
+In ra phiên bản tương ứng.
 
 Gợi ý: học viên sử dụng `sys.argv` hoặc module `argparse`
 '''
 
-# import sys
+import log
+logger = log.get_logger(__name__)
 
 
 def your_function(input_data):
@@ -28,14 +28,11 @@ def your_function(input_data):
     '''
     # Sửa tên và function cho phù hợp, trả về kết quả yêu cầu.
     result = None
-
-    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
     return result
 
 
 def solve(input_data):
+
     '''Function `solve` dùng để `test`, học viên không cần chỉnh sửa gì thêm
     Chỉ thay đổi lại tên function của mình bên dưới cho phù hợp
 
@@ -44,6 +41,8 @@ def solve(input_data):
     :rtype str:
     '''
     result = your_function(input_data)
+    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
+    raise NotImplementedError("Học viên chưa làm bài này")
     return result
 
 
@@ -55,7 +54,11 @@ def main():
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
     raise NotImplementedError("Học viên chưa thực hiện truyền input_data")
 
-    print(solve(input_data))
+    logger.debug("Getting version for the day %s", input_data)
+    print(input_data, solve(input_data))
+
+    for d in "02/03/16", "09/06/16", "06/23/17":
+        print(d, solve(d))
 
 
 if __name__ == "__main__":

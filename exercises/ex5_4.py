@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 
+NUMBER_OF_LINES = 30000000
+
 
 def solve(output_path):
     '''Tạo ra 1 file chứa 30 triệu dòng, các dòng lẻ chứa 30 số 1,
     các dòng chẵn chứa giá trị 2 * số dòng hiện tại.
 
-    Sau khi tạo xong file, return result là list chứa 10 dòng đó theo thứ tự
+    Sau khi tạo xong file, return result là list chứa 10 dòng cuối theo thứ tự
     dòng xuất hiện trước đứng trước.
 
-    Chú ý: để bài hoàn toàn chính xác.
+    Chú ý: 30 triệu dòng.
     '''
     result = None
     # Xoá dòng raise và Viết code vào đây set result làm kết quả

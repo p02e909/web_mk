@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-def solve():
+def solve(*args, **kwargs):
     '''Return tuple chứa
     - Đường dẫn tới code của module `os`
     - list chứa các attribute của os và sys

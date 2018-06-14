@@ -10,7 +10,7 @@ def solve(term1, term2):
     Biết điểm số được chọn là điểm số ở lần học sau cùng.
     '''
 
-    result = None
+    result = {}
     # Xoá dòng raise và Viết code vào đây set result làm kết quả
     raise NotImplementedError("Học viên chưa làm bài này")
     return result

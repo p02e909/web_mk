@@ -19,7 +19,14 @@ Use ``sys.argv``
 '''
 
 
-def your_function(option, file_path):
+import subprocess
+import log
+import sys
+
+logger = log.get_logger(__name__)
+
+
+def list_ten_lines(option, file_path):
     '''Trả về list chứa 10 dòng tùy thuộc vào `option` (-t hoặc -h) sau khi
     đọc dữ liệu từ file
 
@@ -28,10 +35,17 @@ def your_function(option, file_path):
     :rtype list:
     '''
     # Sửa tên và function cho phù hợp, trả về kết quả yêu cầu.
-    result = None
+    # if os.path.isfile(file_path) == False:
+    #     result = logger.debug("%s: File_not_found!", file_path)
 
-    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    if option != '-h' and option != '-t':
+        result = logger.debug("Unavalable_Option: %s", option)
+
+    elif option == '-h':
+        result = subprocess.getoutput('! head '+file_path).splitlines()
+
+    elif option == '-t':
+        result = subprocess.getoutput('! tail '+file_path).splitlines()
 
     return result
 
@@ -45,7 +59,8 @@ def solve(option, file_path):
     :rtype list:
     '''
     # Lưu ý: sửa lại tên function của mình cho phù hợp
-    result = your_function(option, file_path)
+    logger.debug("Using %s option with file %s", option, file_path)
+    result = list_ten_lines(option, file_path)
 
     return result
 
@@ -57,9 +72,10 @@ def main():
     # option: tùy chọn để in ra các dòng đầu hoặc cuối: -h hoặc -t
     # file_path: đường dẫn tới file
     # Gợi ý: sử dụng sys.argv
-    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa xử lí `argument`")
 
+    sys.argv
+    option = sys.argv[1]
+    file_path = sys.argv[2]
     lines = solve(option, file_path)
     for line in lines:
         line = line.rstrip()

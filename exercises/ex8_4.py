@@ -13,8 +13,12 @@ def your_decorator(function):
     '''Tính thời gian chạy của `function` (float)
     '''
     # Sửa lại tên và function cho phù hợp
-    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    return
+    def func_time():
+        start = time.time()
+        function()
+        return (time.time() - start)
+
+    return func_time
 
 
 # Sửa tên decorator cho phù hợp
@@ -31,8 +35,6 @@ def solve():
     Trả về kết quả tùy ý, gán lại vào `result`
     '''
     result = worker()
-    # Xoá dòng sau sau khi đã thay đổi your_decorator phù hợp
-    raise NotImplementedError("Học viên chưa thực hiện tính toán")
     return result
 
 

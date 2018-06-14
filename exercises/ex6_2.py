@@ -3,7 +3,6 @@
 
 def chunk_a_list(iterable, N):
     return list(zip(*[iter(iterable)]*N))
-    pass
 
 
 def solve(iterable, N):
@@ -11,9 +10,6 @@ def solve(iterable, N):
     Nếu tuple cuối không đủ phần tử thì bỏ đi.
     '''
     result = None
-
-
-
     # sửa thành tên function phù hợp
     result = chunk_a_list(iterable, N)
 

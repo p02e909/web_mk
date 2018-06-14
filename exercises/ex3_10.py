@@ -13,14 +13,10 @@ def solve(list1, list2):
     Require: use only lists, and loop.
     '''
     result = []
-    i=0
-    for indexL1 in list1:
-        for indexL2 in list2:
-            if (indexL1 == indexL2) and (indexL2 not in result):
-                result.append(indexL2)
 
-#result = [element for element in list1 if element in list2] 
-    
+    # Xoá dòng raise và Viết code vào đây set result làm kết quả
+    raise NotImplementedError("Học viên chưa làm bài này")
+
     return result
 
 

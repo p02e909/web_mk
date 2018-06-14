@@ -15,11 +15,14 @@ def your_function(iterable):
     :rtype list:
     '''
     # Sửa tên và function cho phù hợp, trả về kết quả yêu cầu.
-    result = None
+    result = []
+    iterator = iter(iterable)
 
-    # Xóa dòng sau và viết code vào đây set các gía trị phù hợp
-    raise NotImplementedError("Học viên chưa thực hiện ghi kết quả vào file")
-
+    while True:
+        try:
+            result.append(next(iterator).upper())
+        except StopIteration:
+            break
     return result
 
 

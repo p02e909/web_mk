@@ -21,6 +21,8 @@ Gợi ý: sử dụng 2 module `inspect` và `importlib`
 '''
 
 
+import log
+logger = log.get_logger(__name__)
 PATH = '.'
 
 
@@ -58,6 +60,8 @@ def solve(input_data):
     :param input_data: đường dẫn tới thư mục
     :rtype dict:
     '''
+
+    logger.debug("Statically analysing directory %s", input_data)
     result = your_function(input_data)
     return result
 

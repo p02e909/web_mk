@@ -1,37 +1,68 @@
 #!/usr/bin/env python3
 
-import random
-def solve(N):
+
+__doc__ = '''
+Yêu cầu:
+- Lưu file ``https://raw.githubusercontent.com/hvnsweeting/states/master/salt/event/init.sls`` về máy với tên event.yaml
+
+ Dùng pip cài thư viện PyYAML, import yaml và dùng `yaml.load` để biến nội
+dung trong file thành kiểu dữ liệu trên Python.
+
+- In ra số phần tử của kiểu dữ liệu vừa tạo. Dùng thư viện json để
+ `json.dump` nội dung, ghi ra một file tên là event.json trong thư mục hiện tại.
+
+- Dùng thư viện pickle để pickle.dump nội dung trên ra file event.pkl trong
+  thư mục hiện tại. Chú ý khi mở file, phải mở ở chế độ ghi ở dạng binary. Đọc
+  thêm tại đây:
+  https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files`
+
+- In ra kích thước của mỗi file đã tạo.
+
+Gợi ý: sử dụng os.stat(filename).st_size
+'''  # NOQA
+
+
+import json  # NOQA
+import os  # NOQA
+import pickle  # NOQA
+import yaml  # NOQA
+
+
+def function_load_dump_file():
+    '''Trả về số phần tử của kiểu dữ liệu sau khi dùng module `yaml` để load
+
+    Thực hiện các yêu cầu tại ``__doc__``
+
+    :rtype int:
     '''
-    Giả lập việc một người tiến lên hoặc lùi lại, biết ta có thể
-    giả lập việc người này tiến hay lùi bằng:
+    # Sửa tên và function cho phù hợp, trả về kết quả yêu cầu.
 
-    random.choice(True, False) # nếu quy ước True là tiến, False là lùi.
+    with open('event.yaml', 'rb') as f_yaml:
+        file_yaml = yaml.load(f_yaml)
+        result = file_yaml
 
-    Với N trường hợp, tính tỷ lệ người này tiến lên
-    phía trước với mỗi trường hợp.
+        with open('event.json', 'wb') as f_json:
+            json.dump(len(file_yaml), f_json)
 
-    Trường hợp 1: chỉ bước 1 bước
-    Trường hợp 2: bước 2 bước
-    ...
-    Trường hợp N: bước N bước
+        with open('event.pkl', 'wb') as f_pickle:
+            pickle.dump(len(file_yaml), f_pickle
 
-    Output là list tỷ lệ người này tiến lên phía trước trong
-    N trường hợp (ở dạng float, vd 50% là 0.5).
+    return result
 
-    Đối với học viên học data analysis, yêu cầu sử dụng thư viện numpy để làm.
+
+def solve():
+    '''Học viên không cần viết code trong hàm `solve`, chỉ thực hiện
+    đổi tên lại function của mình cho phù hợp
+
+    :rtype int:
     '''
-    result = None
-    buoc_tien = 0
-    for so_buoc in range(1, N+1):
-        if random.choice([True, False]) == True:
-            buoc_tien = buoc_tien + 1
-    result = buoc_tien/N  
+    result = function_load_dump_file()
+
     return result
 
 
 def main():
-    print(solve(100))
+    print(solve())
 
 
 if __name__ == "__main__":

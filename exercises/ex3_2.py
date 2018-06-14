@@ -21,19 +21,11 @@ def solve(text):
     '''Trả về tiêu đề bài thơ ghép từ các chữ cái đầu tiên của mỗi dòng.
     Chỉ viết hoa chữ cái đầu tiên.
     '''
-    # result = ''
-    # text=text.split('\n')
-    # text.remove('')
-    # text.remove('')
+    result = None
 
-    # for i in text:
-    #     result +=  i[:1]
-    # result = result.capitalize()
-    # return result
-    result = ''
-    for a in text.strip().split('\n'):
-        result += a[0]
-    result = result.capitalize()
+    # Xoá dòng raise và Viết code vào đây set result làm kết quả
+    raise NotImplementedError("Học viên chưa làm bài này")
+
     return result
 
 

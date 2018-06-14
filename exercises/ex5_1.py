@@ -25,16 +25,8 @@ def solve(colors):
     '''
     result = []
 
-    result = list(zip(
-        ['G', 'o', 'o', 'g', 'l', 'e'],
-        [colors['xanh da trời'], colors['đỏ'], colors['vàng'],
-            colors['xanh da trời'], colors['xanh lá'], colors['đỏ']]))
-
-    with open('index.html', 'w') as f:
-        for i in range(len(result)):
-            f.write("<span style=\"color:{0}\">{1}</span>".
-                    format(result[i][1], result[i][0]))
-
+    # Xoá dòng raise và Viết code vào đây set result làm kết quả
+    raise NotImplementedError("Học viên chưa làm bài này")
 
     return result
 

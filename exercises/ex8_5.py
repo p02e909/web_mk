@@ -1,52 +1,51 @@
 #!/usr/bin/env python3
+import tempfile
+import unittest
 
+'''unittest là thư viện dùng để viết code test code khác.
+Để tạo một "testcase", cần định nghĩa 1 class kế thừa unittest.TestCase,
+tên class phải bắt đầu bằng chữ Test. Các method để test cũng phải bắt
+đầu bằng ``test_``. Test nào khi chạy mà sai sẽ raise AssertionErrror
+exception.
+Tham khảo thêm các test trong thư mục tests/
 
-__doc__ = '''
-Yêu cầu:
-- Viết chương trình cứ 1 giây in ra màn hình thời gian hiện tại.
-- Sau N lần thì chương trình kết thúc
-
-Gợi ý:
-time.sleep, datetime.datetime.now
+Tài liệu: https://docs.python.org/3/library/unittest.html
 '''
 
-import time
-import datetime # NOQA
+
+def factorial(n):
+    if n <= 0:
+        return 1
+    return n * factorial(n - 1)
 
 
-def your_function(N):
-    '''Trả về tuple chứa 2 phần tử bao gồm:
-    - List chứa các điểm thời gian (string) sau N lần thực hiện
-    theo yêu cầu từ ``__doc__``
-    - Tổng thời gian chạy của function
+class TestFactorial(unittest.TestCase):
+    def test_factorial_0_is_1(self):
+        self.assertEqual(1, factorial(0))
 
-    :rtype tuple:
+    def test_factorial_3_is_6(self):
+        self.assertEqual(6, factorial(3))
+
+    def test_factorial_4_is_24(self):
+        self.assertEqual(24, factorial(4))
+
+
+def solve():
     '''
-    # Sửa tên và function cho phù hợp, trả về kết quả yêu cầu.
-    start = time.time()
-
-    result = []
-    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
-    end = time.time()
-    total_time = end - start
-    return (result, total_time)
-
-
-def solve(N):
-    '''Học viên không cần chỉnh sửa trong hàm solve, chỉ thực hiện
-    đổi tên lại function của mình cho phù hợp
-
-    Hàm solve dùng cho mục đích `test`
-    :rtype tuple:
+    Sửa lại các test case trong TestFactorial cho đúng.
     '''
-    result = your_function(N)
-    return result
+    suite = unittest.TestLoader().loadTestsFromTestCase(TestFactorial)
+
+    _, fn = tempfile.mkstemp()
+    with open(fn, 'w') as tmpf:
+        r = unittest.TextTestRunner(stream=tmpf, verbosity=2).run(suite)
+        print(dir(r))
+    return r.wasSuccessful()
 
 
 def main():
-    print(solve(5))
+    test_result = solve()
+    print("Test was successful? ", test_result)
 
 
 if __name__ == "__main__":

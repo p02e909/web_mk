@@ -13,8 +13,10 @@ def solve(octal):
     Out[1]: '0o111'
     '''
 
-    result = 0o777 - octal
+    result = None
 
+    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
+    raise NotImplementedError("Học viên chưa làm bài này")
 
     return result
 

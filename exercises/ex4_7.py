@@ -19,12 +19,8 @@ def solve(year):
 
     result = None
 
-    thien_can = ['giáp', 'ất', 'bính', 'đinh', 'mậu', 'kỷ', 'canh', 'tân', 'nhâm', 'quý']
-    dia_chi = [
-        'tý', 'sửu', 'dần',
-        'mão', 'thìn', 'tị',
-        'ngọ', 'mui', 'thân', 'dậu',
-        'tuất', 'hợi']
+    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
+    raise NotImplementedError("Học viên chưa làm bài này")
 
     return result
 

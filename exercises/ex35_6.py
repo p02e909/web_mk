@@ -2,10 +2,14 @@
 
 
 def solve(N):
-    '''Creates a list contains all integer (not string) digits
-    of ten last digits of `2**N`.
     '''
-    result = None
+    What is the sum of the digits of the number `2**1000`?
+    https://projecteuler.net/problem=16
+
+    Must: use list comprehension
+    Tips: list comprehension always create new list
+    '''
+    result = 0
 
     # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
     raise NotImplementedError("Học viên chưa làm bài này")

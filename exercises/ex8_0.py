@@ -13,7 +13,9 @@ Chú ý cách đọc docstring của function:
 
 - :rtype abc: kiểu dữ liệu trả về của function là `abc`
 - :param name: phần mô tả cho argument `name` truyền vào function
-```
+
+Từ bài này, thay vì dùng print, ta sẽ dùng logging để ghi lại "nhật ký" (log)
+của chương trình.
 '''
 
 

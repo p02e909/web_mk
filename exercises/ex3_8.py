@@ -11,11 +11,12 @@ def solve(text):
 
     :rtype: bool
     '''
-    result = ''
-    if len(text)<2:
-        return FALSE
-    text = text.lower().replace(' ','')
-    return text == text[::-1]
+    result = None
+
+    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
+    raise NotImplementedError("Học viên chưa làm bài này")
+
+    return result
 
 
 def main():

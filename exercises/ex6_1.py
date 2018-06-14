@@ -3,17 +3,25 @@
 data = {'first_50': 1230, 'from_51_to_100': 1530, 'above_100': 1786}
 
 
-def calculate_cost(usage, prices):
+def name_deco(name):
+    return name.title()
+
+
+def calculate_cost(use, prices):
     '''Tính tiền điện (integer)
     với giá tiền cho bởi đề bài, số điện tiêu thụ `usage`
     '''
     # Viết code tính toán vào đây
+    usage = int(use)
     if usage <= 50:
         return prices['first_50'] * usage
-    elif 51 <= usage <=100:
-        return prices['from_51_to_100'] * usage
-    elif usage >100:
-        return prices['above_100'] * usage
+    elif 51 <= usage <= 100:
+        return (prices['first_50'] * 50
+                + prices['from_51_to_100'] * (usage - 50))
+    else:
+        return (prices['first_50'] * 50
+                + prices['from_51_to_100'] * 50
+                + prices['above_100'] * (usage - 100))
     pass
 
 
@@ -24,7 +32,7 @@ def solve(input_data):
     # tính kết quả.
     # Các bài còn lại học viên tự định nghĩa function và gọi function để
     # tính toán kết quả `result`
-    result = [calculate_cost(i, input_data['prices'])
+    result = [(name_deco(i[0]), calculate_cost(i[1], input_data['prices']))
               for i in input_data['usages']]
 
     return result

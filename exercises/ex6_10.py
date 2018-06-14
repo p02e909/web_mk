@@ -5,6 +5,13 @@ Bài này không bắt buộc.
 '''
 
 
+def read_code_is_more_important_than_write():
+    '''Read those code
+    https://github.com/familug/FAMILUG/tree/master/Python
+    '''
+    pass
+
+
 def rprint(n):
     '''Hàm đệ quy (recursive function) in ra màn hình từ 1 -> n.
     Tham khảo: http://pymi.vn/blog/print-recursively/
