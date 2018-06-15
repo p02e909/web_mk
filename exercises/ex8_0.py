@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 __doc__ = '''
-
+Chuẩn bị cho buổi sau
 ---------------------
 
 - Cài đặt `requests`, `BeautifulSoup4` lên máy:
