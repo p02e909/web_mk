@@ -1,3 +1,6 @@
+'''
+test sys.argv
+'''
 import sys
 x = sys.argv
 for i in x:
