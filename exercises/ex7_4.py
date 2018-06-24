@@ -19,7 +19,7 @@ def solve(text):
     temp = text[0]
     flag = True
     for element in text:
-        if flag == True:
+        if flag is True:
             flag = False
             sub_str = element[0]
         elif element == temp:
@@ -29,7 +29,7 @@ def solve(text):
             result = result + sub_str
             temp = element
             numb = 1
-    sub_str = (temp*2 + str(numb)) if (numb != 1) else temp 
+    sub_str = (temp*2 + str(numb)) if (numb != 1) else temp
     result = result + sub_str
     return result
 
