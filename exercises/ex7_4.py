@@ -13,11 +13,24 @@ def solve(text):
     Đây là một biến thể của một thuật toán nén dữ liệu có tên Run-length
     encoding (RLE).
     '''
-    result = None
-
-    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    result = ''
+    numb = 1
+    sub_str = ''
+    temp = text[0]
+    flag = True
+    for element in text:
+        if flag == True:
+            flag = False
+            sub_str = element[0]
+        elif element == temp:
+            numb = numb + 1
+        else:
+            sub_str = (temp*2 + str(numb)) if (numb != 1) else temp
+            result = result + sub_str
+            temp = element
+            numb = 1
+    sub_str = (temp*2 + str(numb)) if (numb != 1) else temp 
+    result = result + sub_str
     return result
 
 
