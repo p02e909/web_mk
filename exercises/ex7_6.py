@@ -4,13 +4,42 @@ import random  # NOQA
 import string  # NOQA
 
 
-def your_function(length=16):
+def create_pass(length):
     '''Tạo một mật khẩu ngẫu nhiên (random password),
     mật khẩu này bắt buộc phải chứa ít nhất 1 chữ thường,
     1 chữ hoa, 1 số, 1 ký tự punctuation (string.punctuation).
     '''
-    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+
+    password = ""
+    if length > 4:
+        password = [random.choice(string.ascii_lowercase) +
+                    random.choice(string.ascii_uppercase) +
+                    random.choice(string.digits) +
+                    random.choice(string.punctuation)] +\
+                            random.choices(
+                                string.ascii_letters +
+                                string.digits +
+                                string.punctuation,
+                                k=(length-4))
+        return password
+    if length <= 4:
+        for numb in range(1, length+1):
+            if numb == 1:
+                password = password +\
+                        random.choice(string.ascii_lowercase)
+
+            elif numb == 2:
+                password = password +\
+                        random.choice(string.ascii_uppercase)
+
+            elif numb == 3:
+                password = password +\
+                        random.choice(string.digits)
+
+            elif numb == 4:
+                password = password +\
+                        random.choice(string.punctuation)
+        return password
 
 
 def generate_and_append(length, passwords=[]):
@@ -20,11 +49,17 @@ def generate_and_append(length, passwords=[]):
     password vừa tạo ra.
     Sửa argument tùy ý.
     '''
-    pass
+    pass_gen = ''.join(create_pass(length))
+    if passwords == []:
+        return [pass_gen]
+    else:
+        passwords.append(pass_gen)
+
+    return passwords
 
 
 def solve(input_data):
-    result = your_function(input_data)
+    result = create_pass(input_data)
     return result
 
 

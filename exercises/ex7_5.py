@@ -1,6 +1,25 @@
 #!/usr/bin/env python3
 
 
+import os
+import sys
+
+
+def f_lines(f_read):
+    buff_size = 1024*1024
+    buff = f_read(buff_size)
+    while buff:
+        yield buff.count(b'\n')
+        buff = f_read(buff_size)
+
+
+def count_lines(file_name):
+    with open(file_name, 'rb') as f:
+        flines = f_lines(f.raw.read)
+        lines = sum(numb for numb in flines)
+        return lines
+
+
 def solve(*args, **kwargs):
     '''Return tuple chứa
     - Đường dẫn tới code của module `os`
@@ -18,8 +37,7 @@ def solve(*args, **kwargs):
 
     result = None
 
-    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
+    result = (os.__file__, dir(os) + dir(sys), count_lines(os.__file__))
 
     return result
 
