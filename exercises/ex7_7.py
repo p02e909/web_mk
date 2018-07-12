@@ -39,16 +39,15 @@ def country_ranks(xmldata):
     Trả về list các tuple (tên quốc gia, thứ hạng)
     '''
 
-    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError("Học viên chưa làm bài này")
-
+    result = []
     for child in ET.fromstring(xmldata):
-        pass
+        rank = child.find('rank').text
+        country = child.get('name')
+        result.append((country, rank))
+    return result
 
-    return
 
-
-def solve(input_data):
+def solve(data):
     result = country_ranks(data)
     return result
 

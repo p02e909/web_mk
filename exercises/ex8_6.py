@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 
 
+import re
+import collections
+
+
 __doc__ = '''
 Kiểu dữ liệu collections.Counter giúp cho việc đếm trờ nên rất dễ dàng.
 https://docs.python.org/3/library/collections.html#collections.Counter
@@ -22,35 +26,32 @@ data = (
 )
 
 
-def your_function(text):
+def func_counter(text):
     '''Trả về Counter object chứa tần xuất xuất hiện của các từ trong `text`
     :rtype Counter
     '''
-    # Sửa tên và function cho phù hợp, trả về kết quả yêu cầu.
-    result = None
+    result = collections.Counter()
 
-    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError(
-        "Học viên chưa thực hiện tìm số lần xuất hiện của từng từ"
-    )
-
+    words = re.findall(r'\w+', data.lower())
+    for word in words:
+        result[word] += 1
     return result
 
 
-def your_function_2(top_n, counter):
+def top_word(top_n, counter):
     '''Trả về list chứa các tuple của top_n từ xuất hiện nhiều nhất kèm
     số lần xuất hiện của từ đó
 
     :rtype list:
     '''
-    # Sửa tên function cho phù hợp, trả về kết quả yêu cầu.
-    result = None
+    result = list(counter.items())
 
-    # Xoá dòng sau và viết code vào đây set các giá trị phù hợp
-    raise NotImplementedError(
-        "Học viên chưa tìm 3 từ xuất hiện nhiều nhất"
-    )
+    return result
 
+
+def top_word_2(top_n, data):
+    words = re.findall(r'\w+', data.lower())
+    result = collections.Counter(words).most_common(top_n)
     return result
 
 
@@ -60,8 +61,8 @@ def solve(input_data):
 
     :rtype list:
     '''
-    result = your_function_2(3, your_function(input_data))
-
+    result = top_word(3, func_counter(input_data))
+    # result = top_word_2(3, input_data)
     return result
 
 
