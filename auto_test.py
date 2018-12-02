@@ -35,6 +35,15 @@ def learn():
 
 
 def test_UI(ids):
+    username = browser.find_element_by_id('admin')
+    username.send_keys('admin')
+
+    password = browser.find_element_by_id('pass')
+    password.send_keys('2admin$admin')
+
+    submit = browser.find_element_by_id('loginbutton')
+    submit.click()
+
     for elem in ids:
         clicker = browser.find_element_by_id(elem)
         sleep(3)
